@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marco Casemiro - Portfólio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4b0082, #000000); /* Preto e Roxo */
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .light-theme {
+      background: linear-gradient(135deg, #f1f1f1, #ffffff);
+      color: #333;
+    }
+
+    header {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: #8e44ad; /* Roxo claro */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .hero {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      width: 100%;
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .hero .content {
+      max-width: 800px;
+      margin: auto;
+      padding: 1.5rem;
+    }
+
+    .cta-btn {
+      background-color: #8e44ad; /* Roxo claro */
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      display: inline-block;
+      font-weight: bold; /* Adicionado para aumentar a legibilidade */
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #6f2a92; /* Roxo mais escuro */
+    }
+
+    .about {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 4rem;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 3rem auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2.5rem;
+      color: #8e44ad; /* Roxo claro */
+      margin-bottom: 2rem;
+    }
+
+    .about p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #ddd;
+      margin-bottom: 1.5rem;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+      max-width: 800px;
+      padding: 0 1rem;
+    }
+
+    .skill {
+      width: 200px;
+      text-align: center;
+    }
+
+    .skill .title {
+      color: #8e44ad;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #444;
+      border-radius: 5px;
+      margin: 10px 0;
+      position: relative;
+    }
+
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      background-color: #8e44ad; /* Roxo claro */
+      border-radius: 5px;
+    }
+
+    .progress-bar-container {
+      margin-top: 1rem;
+    }
+
+    .experience,
+    .projects {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .experience h2,
+    .projects h2 {
+      font-size: 2.5rem;
+      color: #8e44ad; /* Roxo claro */
+      margin-bottom: 1.5rem;
+    }
+
+    .experience ul,
+    .projects .project-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .experience li,
+    .projects .project-card {
+      background-color: #333;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .experience h4,
+    .projects .project-card h3 {
+      font-size: 1.8rem;
+      color: #8e44ad;
+    }
+
+    .experience p,
+    .projects .project-card p {
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+
+    form {
+      max-width: 800px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    form input,
+    form textarea,
+    form button {
+      padding: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: #8e44ad;
+      color: white;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #2c3e50;
+      color: white;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #8e44ad;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #particles-js {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-icons a img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a img:hover {
+      transform: scale(1.1);
+    }
+
+    .typing-animation {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 4px solid;
+      padding-right: 10px;
+      animation: typing 5s steps(40) 1s forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .skills-container {
+        flex-direction: column;
+      }
+
+      .nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .cta-btn {
+        font-size: 1rem;
+      }
+    }
+    .contact-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #1a1a1a; /* Fundo escuro */
+  color: #fff;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.social-link img[alt="WhatsApp"] {
+  filter: brightness(0) saturate(100%) invert(43%) sepia(73%) saturate(367%) hue-rotate(88deg) brightness(90%) contrast(95%);
+}
+
+.social-link {
+  display: inline-block;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.social-link:hover {
+  transform: scale(1.2); /* Aumenta o ícone */
+  filter: brightness(1.5); /* Realça a cor */
+}
+
+/* Define os estilos iniciais para os ícones sociais */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+  opacity: 1;
+  transform: scale(1.1); /* Aumenta o ícone quando o mouse passa */
+}
+
+/* Define a animação para todos os ícones ao passar o mouse sobre o e-mail */
+.email-contact:hover ~ .social-icons .social-icon {
+  opacity: 1;  /* Os ícones ficam visíveis */
+  transform: scale(1.1); /* Todos os ícones aumentam */
+}
+
+/* Efeito para o ícone de e-mail */
+.email-contact {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.email-contact svg {
+  margin-right: 8px;
+}
+
+.contact-section {
+  text-align: center; /* Centraliza o texto dentro da seção */
+  padding: 50px 20px;
+  background-color: #1a1a1a; /* Fundo escuro */
+  color: #fff;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.email-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Distância entre o ícone e o texto */
+  margin-top: 20px;
+}
+
+.email-contact a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.email-contact a:hover {
+  color: #8e44ad; /* Cor ao passar o mouse */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-link {
+  display: inline-block;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.social-link:hover {
+  transform: scale(1.2); /* Aumenta o ícone */
+  filter: brightness(1.5); /* Realça a cor */
+}
+
+footer {
+  text-align: center;
+  background-color: #2c3e50; /* Cor de fundo do rodapé */
+  color: white;
+  padding: 20px 0; /* Removendo o espaço extra no topo e na parte inferior do rodapé */
+  margin: 0; /* Garantindo que não haja margem adicional abaixo do rodapé */
+}
+
+  </style>
+</head>
+
+<body>
+  <div id="particles-js"></div>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">Quem Sou Eu</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#experience">Experiência</a></li>
+        <li><a href="#projects">Projetos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" style="position: absolute; top: 1rem; right: 1rem; background-color: transparent; color: #fff; border: 2px solid #fff; padding: 0.5rem 1rem; cursor: pointer;">Alternar Tema</button>
+  </header>
+
+  <section class="hero">
+    <div class="content">
+      <p class="typing-animation">Olá, eu sou o Marco Casemiro</p>
+      <p>Desenvolvedor Web, Programador e Analista de dados</p>
+      <a href="#contact" class="cta-btn">Entre em Contato</a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>Sobre Mim</h2>
+    <img src="image/Eu.png" alt="minha foto" style="width: 200px; height: 200px; object-fit: cover;">
+    <p>Sou Marco Casemiro, formado em Análise e Desenvolvimento de Sistemas e pós-graduação em Ciências de Dados. Trabalho com desenvolvimento de soluções e automação de processos para empresas de diversos setores.</p>
+  </section>
+
+  <section id="skills" class="skills-container">
+    <div class="skill">
+      <h3 class="title">Análise de Dados</h3>
+      <div class="progress-bar">
+        <span style="width: 90%;"></span>
+      </div>
+      <p>Experiência com ferramentas como Excel, Power BI e Python para análise e visualização de dados.</p>
+      <img src="image/Dados.png" alt="Logo de Análise de Dados" style="width: 40px;">
+    </div>
+    <div class="skill">
+      <h3 class="title">Desenvolvimento Web</h3>
+      <div class="progress-bar">
+        <span style="width: 80%;"></span>
+      </div>
+      <p>Experiência com HTML, CSS, JavaScript, e frameworks modernos para desenvolvimento de sites responsivos.</p>
+      <img src="logo2.png" alt="Logo de Desenvolvimento Web" style="width: 40px;">
+    </div>
+    <div class="skill">
+      <h3 class="title">Programação</h3>
+      <div class="progress-bar">
+        <span style="width: 85%;"></span>
+      </div>
+      <p>Experiência em linguagens como Python e JavaScript para automação e análise de dados.</p>
+      <img src="logo3.png" alt="Logo de Programação" style="width: 40px;">
+    </div>
+  </section>
+
+  <section id="experience" class="experience">
+    <h2>Experiência</h2>
+    <ul>
+      <li>
+        <h4>Desenvolvedor de Sistemas</h4>
+        <p>Positiva Qualidade Ambiental - 2020 - Presente</p>
+        <p>Atuo como responsável pelo desenvolvimento e manutenção de sistemas internos e automação de processos.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projetos</h2>
+    <div class="project-card">
+      <h3>Projeto 1</h3>
+      <p>Descrição do projeto 1.</p>
+    </div>
+    <div class="project-card">
+      <h3>Projeto 2</h3>
+      <p>Descrição do projeto 2.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contato</h2>
+    <p>Entre em contato comigo através das redes sociais ou envie um e-mail.</p>
+    <div class="social-icons">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5551986188640" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+                <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"></path>
+                <path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path>
+                <path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"></path>
+            </svg>
+        </a>
+        
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/marco-casemiro-aa26bb223" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+                <path fill="#0288D1" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"></path>
+                <path fill="#FFF" d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36 36 36z"></path>
+            </svg>
+        </a>
+        
+        <!-- GitHub -->
+        <a href="https://github.com/seuusuario" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+                <path d="M25,4.549C13.423,4.549,4.139,13.833,4.139,25.412c0,9.203,5.975,17.017,14.27,19.765c1.041,0.19,1.42-0.452,1.42-1.002c0-0.497-0.021-1.813-0.033-3.561c-5.801,1.263-7.022-2.798-7.022-2.798c-0.947-2.41-2.314-3.052-2.314-3.052c-1.892-1.293,0.143-1.266,0.143-1.266c2.092,0.147,3.192,2.147,3.192,2.147c1.858,3.186,4.876,2.263,6.066,1.73c0.189-1.346,0.728-2.265,1.323-2.788c-4.632-0.527-9.497-2.319-9.497-10.321c0-2.278,0.813-4.138,2.147-5.596c-0.217-0.526-0.929-2.653,0.205-5.532c0,0,1.749-0.56,5.731,2.137c1.662-0.462,3.446-0.693,5.222-0.702c1.777,0.009,3.561,0.24,5.223,0.702c3.982-2.697,5.729-2.137,5.729-2.137c1.135,2.879,0.423,5.006,0.205,5.532c1.335,1.458,2.146,3.318,2.146,5.596c0,8.023-4.874,9.786-9.514,10.304c0.748,0.645,1.414,1.921,1.414,3.87c0,2.794-0.027,5.048-0.027,5.734c0,0.552,0.377,1.202,1.431,1.002C39.87,42.424,45,34.611,45,25.412C45,13.833,35.717,4.549,25,4.549z"></path>
+            </svg>
+        </a>
+        
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/seuusuario" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+                <radialGradient id="a" cx="19.38" cy="42.035" r="44.899" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#fd5"></stop>
+                    <stop offset=".328" stop-color="#ff543f"></stop>
+                    <stop offset=".348" stop-color="#fc5245"></stop>
+                    <stop offset=".504" stop-color="#e64771"></stop>
+                    <stop offset=".643" stop-color="#d53e91"></stop>
+                    <stop offset=".761" stop-color="#cc39a4"></stop>
+                    <stop offset=".841" stop-color="#c837ab"></stop>
+                </radialGradient>
+                <path fill="url(#a)" d="M34.68 4H13.32A9.34 9.34 0 0 0 4 13.32v21.36A9.34 9.34 0 0 0 13.32 44h21.36A9.34 9.34 0 0 0 44 34.68V13.32A9.34 9.34 0 0 0 34.68 4zm5.92 30.68a5.92 5.92 0 0 1-5.92 5.92H13.32a5.92 5.92 0 0 1-5.92-5.92V13.32a5.92 5.92 0 0 1 5.92-5.92h21.36a5.92 5.92 0 0 1 5.92 5.92z"></path>
+                <path fill="#fff" d="M24 14.38a9.62 9.62 0 1 0 9.62 9.62A9.63 9.63 0 0 0 24 14.38zm0 15.8a6.18 6.18 0 1 1 6.18-6.18 6.19 6.19 0 0 1-6.18 6.18zm10.26-17.76a2.25 2.25 0 1 0 2.25 2.25 2.25 2.25 0 0 0-2.25-2.25z"></path>
+            </svg>
+        </a>
+</div>
+    </div>
+    <div class="email-contact">
+      <a href="mailto:marquinhocampeiro@hotmail.com">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8l8 5 8-5v10H4z"/>
+        </svg>
+        <span>marquinhocampeiro@hotmail.com</span>
+      </a>
+    </div>
+</section>
+
+<footer>
+  <p>© 2024 Marco Casemiro. </p>
+</footer>
+
+  <script>
+
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: "#8e44ad"
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.5,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#8e44ad",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "repulse"
+          },
+          onclick: {
+            enable: true,
+            mode: "push"
+          }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Alternância de tema
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", function () {
+      document.body.classList.toggle("light-theme");
+
+      if (document.body.classList.contains("light-theme")) {
+        // Tema claro
+        document.body.style.background = "linear-gradient(135deg, #f1f1f1, #ffffff)";
+        document.body.style.color = "#333";
+        document.querySelectorAll("header, .hero, .about, .skills-container, .experience, .projects, .contact").forEach(section => {
+          section.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+        });
+        document.querySelectorAll(".cta-btn, .skill .title, footer a").forEach(element => {
+          element.style.color = "#8e44ad"; // Roxo claro
+        });
+        document.querySelectorAll(".cta-btn").forEach(button => {
+          button.style.color = "white"; // Ajustado para ficar visível no tema claro
+        });
+      } else {
+        // Tema escuro
+        document.body.style.background = "linear-gradient(135deg, #4b0082, #000000)"; // Roxo e Preto
+        document.body.style.color = "#ffffff";
+        document.querySelectorAll("header, .hero, .about, .skills-container, .experience, .projects, .contact").forEach(section => {
+          section.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+        });
+        document.querySelectorAll(".cta-btn, .skill .title, footer a").forEach(element => {
+          element.style.color = "#8e44ad"; // Roxo claro
+        });
+        document.querySelectorAll(".cta-btn").forEach(button => {
+          button.style.color = "white"; // Ajustado para ficar visível no tema escuro
+        });
+      }
+    });
+    
+  </script>
+</body>
+
+</html>

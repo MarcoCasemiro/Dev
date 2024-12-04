@@ -1,0 +1,112 @@
+/* Estilo geral para o corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* Estilo geral para a seção de contato */
+.contact-section {
+  padding: 50px 0;
+  background-color: #f4f4f4;
+  color: #333;
+  margin-top: 40px; /* Distância da seção anterior */
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-container p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+/* Estilo das redes sociais */
+.contact-info {
+  margin-top: 40px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+}
+
+/* Seu código de estilo restante */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+footer .social-icons {
+  margin-top: 10px;
+}
+
+footer .social-icons a {
+  margin: 0 10px;
+}
+
+footer .social-icons img {
+  width: 30px;
+  height: 30px;
+}
+.social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2); /* Aumenta o tamanho ao passar o mouse */
+}
+
+.social-icons svg path {
+  transition: fill 0.3s ease;
+}
+
+.social-icons a:hover svg path:first-of-type {
+  fill: #0077b5; /* Azul do LinkedIn */
+}
+
+.social-icons a[href*="github"] svg path:first-of-type:hover {
+  fill: #333; /* Preto do GitHub */
+}
+
+.social-icons a[href*="wa.me"] svg path:first-of-type:hover {
+  fill: #25d366; /* Verde do WhatsApp */
+}
+/* Cores ao passar o mouse */
+.social-icons a[href*="linkedin"] svg path:first-of-type:hover {
+  fill: #0077b5; /* Azul do LinkedIn */
+}
+
+.social-icons a[href*="github"] svg path:first-of-type:hover {
+  fill: #333; /* Preto do GitHub */
+}
+
+.social-icons a[href*="wa.me"] svg path:first-of-type:hover {
+  fill: #25d366; /* Verde do WhatsApp */
+}
+
+.social-icons a[href*="instagram"] svg path:first-of-type:hover {
+  fill: #E4405F; /* Rosa do Instagram */
+}
